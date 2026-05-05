@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 import Image from "next/image";
 
 export default function CartSidebar() {
-    const { cart, removeFromCart, updateQuantity, cartTotal, isCartOpen, toggleCart } = useCart();
+    const { cart, removeFromCart, updateQuantity, cartTotal, isCartOpen, toggleCart, deliveryDistance } = useCart();
 
     return (
         <AnimatePresence>
@@ -113,14 +113,61 @@ export default function CartSidebar() {
                         {/* Footer */}
                         {cart.length > 0 && (
                             <div className="p-4 sm:p-6 bg-cream border-t space-y-4 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
-                                <div className="flex justify-between text-lg sm:text-xl font-bold text-accent">
-                                    <span>Total</span>
-                                    <span>₹{cartTotal}</span>
+                                <div className="space-y-3 text-sm">
+                                    <div className="flex justify-between text-accent">
+                                        <span>Subtotal</span>
+                                        <span>₹{cartTotal}</span>
+                                    </div>
+                                    
+                                    {/* Delivery Fee Section */}
+                                    <div className="bg-white rounded-lg p-3 space-y-2 border border-gray-100">
+                                        <p className="font-bold text-accent text-xs uppercase tracking-widest">Delivery Charges</p>
+                                        
+                                        {deliveryDistance === null ? (
+                                            <p className="text-xs text-gray-500 italic">Enter delivery address to calculate fee</p>
+                                        ) : deliveryDistance > 3 ? (
+                                            <div className="text-xs">
+                                                <p className="text-red-600 font-bold">❌ Delivery Not Available</p>
+                                                <p className="text-gray-500 text-[10px] mt-1">Location is {deliveryDistance.toFixed(1)} km away. We deliver only within 0-3 km radius.</p>
+                                            </div>
+                                        ) : (
+                                            <div className="space-y-1 text-xs">
+                                                {cartTotal < 250 ? (
+                                                    <div className="flex justify-between text-gray-700">
+                                                        <span>Delivery Fee:</span>
+                                                        <span className="font-bold text-primary">₹35</span>
+                                                    </div>
+                                                ) : (
+                                                    <div className="flex justify-between text-green-600 font-bold">
+                                                        <span>Delivery:</span>
+                                                        <span>FREE 🎉</span>
+                                                    </div>
+                                                )}
+                                                <p className="text-gray-500 text-[10px] mt-1">Distance: {deliveryDistance.toFixed(1)} km</p>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                                <button className="w-full py-4 bg-primary text-accent font-bold uppercase tracking-widest rounded-sm hover:bg-accent hover:text-white transition-all shadow-lg active:scale-[0.98] text-sm">
+
+                                <div className="border-t pt-3 flex justify-between text-lg sm:text-xl font-bold text-accent">
+                                    <span>Total</span>
+                                    <span>
+                                        ₹{
+                                            deliveryDistance === null || deliveryDistance > 3
+                                                ? cartTotal
+                                                : cartTotal < 250
+                                                ? cartTotal + 35
+                                                : cartTotal
+                                        }
+                                    </span>
+                                </div>
+
+                                <button className="w-full py-4 bg-primary text-accent font-bold uppercase tracking-widest rounded-sm hover:bg-accent hover:text-white transition-all shadow-lg active:scale-[0.98] text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                                    disabled={deliveryDistance !== null && deliveryDistance > 3}
+                                >
                                     Proceed to Checkout
                                 </button>
-                                <p className="text-[10px] text-gray-500 text-center uppercase tracking-widest">Taxes and delivery calculated at checkout</p>
+                                <p className="text-[10px] text-gray-500 text-center uppercase tracking-widest">Distance will be confirmed at checkout</p>
                             </div>
                         )}
                     </motion.div>

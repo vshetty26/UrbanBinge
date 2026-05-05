@@ -22,6 +22,12 @@ type CartContextType = {
     toggleCart: () => void;
     notification: string | null;
     clearNotification: () => void;
+    deliveryFee: number;
+    setDeliveryFee: (fee: number) => void;
+    deliveryMessage: string | null;
+    setDeliveryMessage: (message: string | null) => void;
+    deliveryDistance: number | null;
+    setDeliveryDistance: (distance: number | null) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -30,6 +36,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const [cart, setCart] = useState<CartItem[]>([]);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [notification, setNotification] = useState<string | null>(null);
+    const [deliveryFee, setDeliveryFee] = useState(0);
+    const [deliveryMessage, setDeliveryMessage] = useState<string | null>(null);
+    const [deliveryDistance, setDeliveryDistance] = useState<number | null>(null);
 
     // Load cart from local storage on mount
     useEffect(() => {
@@ -106,6 +115,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 toggleCart,
                 notification,
                 clearNotification,
+                deliveryFee,
+                setDeliveryFee,
+                deliveryMessage,
+                setDeliveryMessage,
+                deliveryDistance,
+                setDeliveryDistance,
             }}
         >
             {children}

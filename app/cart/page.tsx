@@ -105,7 +105,7 @@ export default function CartPage() {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
     };
 
-    const isFormValid = isOpen && name && isValidPhone(phone) && isValidEmail(email) && flatNo && area && distance && !locationError && cart.length > 0;
+    const isFormValid = isOpen && name && isValidPhone(phone) && isValidEmail(email) && flatNo && area && distance && !locationError && cart.length > 0 && parseFloat(distance) <= 3;
 
     const handlePlaceOrder = async () => {
         if (!isOpen) {
@@ -354,8 +354,10 @@ export default function CartPage() {
                                             <p className="text-xs text-red-500 mt-2">{locationError}</p>
                                         )}
                                         {distance && !locationError && (
-                                            <p className="text-xs text-green-600 mt-2 font-medium">
-                                                {deliveryCharge === 0 ? "Free Delivery! 🎉" : `Distance: ${distance} km`}
+                                            <p className={`text-xs mt-2 font-medium ${parseFloat(distance) > 3 ? 'text-red-600' : 'text-green-600'}`}>
+                                                {parseFloat(distance) > 3 
+                                                    ? `❌ Delivery Not Available - ${distance} km is outside our 0-3 km delivery radius` 
+                                                    : deliveryCharge === 0 ? "✅ Free Delivery! 🎉" : `✅ Delivery Fee: ₹${deliveryCharge}`}
                                             </p>
                                         )}
                                     </div>

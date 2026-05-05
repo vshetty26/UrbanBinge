@@ -2,24 +2,18 @@
 export const calculateDeliveryCharge = (distance: number, orderTotal: number) => {
     if (isNaN(distance) || distance <= 0) return 0;
 
-    // const MAX_DELIVERY_RADIUS = 100;
-    // if (distance > MAX_DELIVERY_RADIUS) return -1; // Indicate out of range
+    const MAX_DELIVERY_RADIUS = 3; // Urban Binge delivery radius: 0-3km
 
-    // Logic: 
-    // If order < 300 and distance <= 5km, compulsory 40 Rs charge (as per CheeniNamak code logic: if dist <= 5 return 40).
-    if (orderTotal < 300) {
-        if (distance <= 5) {
-            return 40;
-        } else {
-            // For > 5km, charge 10 Rs per km (full distance) as per CheeniNamak logic
-            return Math.ceil(distance * 10);
-        }
+    // If distance exceeds 3km, delivery not available
+    if (distance > MAX_DELIVERY_RADIUS) return -1; // Indicate out of range
+
+    // Logic for Urban Binge:
+    // If order < 250 and distance <= 3km, charge ₹35
+    if (orderTotal < 250) {
+        return 35;
     } else {
-        // orderTotal >= 300
-        // Free delivery under 5km
-        if (distance <= 5) return 0;
-        // Above 5km, charge for extra distance beyond 5km at 10 Rs/km
-        return Math.ceil((distance - 5) * 10);
+        // orderTotal >= 250: Free delivery within 3km
+        return 0;
     }
 };
 
