@@ -128,32 +128,22 @@ function calculateRelevance(itemName: string, searchQuery: string): number {
     return 0;
 }
 
-// Group products by categoryName and prepend a "Recommended" category.
+// Group products by categoryName, maintaining order from menu
 function groupByCategory(products: any[]): { name: string; items: any[] }[] {
     const map = new Map<string, any[]>();
+    const categoryOrder: string[] = [];
+    
     for (const p of products) {
         const key = p.categoryName;
-        if (!map.has(key)) map.set(key, []);
+        if (!map.has(key)) {
+            map.set(key, []);
+            categoryOrder.push(key);
+        }
         map.get(key)!.push(p);
     }
 
-    // Pick 4 random items for a Recommended category
-    const allProductsArray = Array.from(products);
-    const seed = 42;
-    const shuffled = [...allProductsArray].sort((a, b) => {
-        const ha = ((a.id.charCodeAt(a.id.length - 1) * seed) % 997);
-        const hb = ((b.id.charCodeAt(b.id.length - 1) * seed) % 997);
-        return ha - hb;
-    });
-
-    const recs = shuffled.slice(0, 4);
-    const groups = Array.from(map.entries()).map(([name, items]) => ({ name, items }));
-
-    if (recs.length > 0) {
-        groups.unshift({ name: "Recommended", items: recs });
-    }
-
-    return groups;
+    // Return groups in the order they appear in the menu
+    return categoryOrder.map(name => ({ name, items: map.get(name)! }));
 }
 
 export default function MenuGrid({ selectedFilter = "all", searchQuery = "", onResultsChange }: {
