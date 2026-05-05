@@ -1,25 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Specialties from "@/components/Specialties";
-import Gallery from "@/components/Gallery";
-import Features from "@/components/Features";
-import Testimonials from "@/components/Testimonials";
-import OwnerSpeaks from "@/components/OwnerSpeaks";
-import Footer from "@/components/Footer";
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-cream text-accent">
-      <Navbar />
+import { redirect } from "next/navigation";
 
-      <Hero />
-      <About />
-      <Specialties />
-      <Gallery />
-      <Features />
-      <Testimonials />
-      <OwnerSpeaks />
-      <Footer />
-    </main>
-  );
+export default function Home() {
+  redirect("/menu");
 }
