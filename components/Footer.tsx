@@ -14,7 +14,7 @@ export default function Footer() {
                     <div className="space-y-4 text-center sm:text-left">
                         <Link href="/menu" className="inline-block relative h-16 w-32 sm:h-20 sm:w-40 mx-auto sm:mx-0">
                             <Image
-                                src="/chopsticklog.png"
+                                src="/urbanbinge-logo.png"
                                 alt="Urban Binge"
                                 fill
                                 className="object-contain"

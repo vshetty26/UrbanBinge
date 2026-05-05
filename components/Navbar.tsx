@@ -38,7 +38,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/menu" className="relative h-16 w-32 sm:h-20 sm:w-40 md:h-24 md:w-48 flex items-center transition-transform duration-300 hover:scale-105">
                     <Image
-                        src="/chopsticklog.png"
+                        src="/urbanbinge-logo.png"
                         alt="Urban Binge"
                         fill
                         priority
