@@ -18,7 +18,6 @@
       "category": "Breakfast Meal",
       "cuisine": "South Indian",
       "type": "Vegetarian",
-      "section": "Breakfast",
       "timing": "9AM TO 6PM",
       "items": [
         {"name": "Medu Vada", "price": 95},
@@ -30,9 +29,8 @@
     },
     {
       "category": "Indian Mini Meal",
-      "cuisine": "Indian",
+      "cuisine": "South Indian",
       "type": "Vegetarian",
-      "section": "Mini Meal",
       "timing": "ALL DAY",
       "items": [
         {"name": "Classic Butter Pav Bhaji", "price": 145},
@@ -43,10 +41,9 @@
       ]
     },
     {
-      "category": "South Indian - Dosa",
+      "category": "South Indian",
       "cuisine": "South Indian",
       "type": "Vegetarian",
-      "section": "Dosa",
       "timing": "ALL DAY",
       "items": [
         {"name": "Plain Dosa", "price": 85},
@@ -61,16 +58,7 @@
         {"name": "Rava Sada", "price": 115},
         {"name": "Set Dosa", "price": 115},
         {"name": "Classic Benne", "price": 155},
-        {"name": "Benne Mysore Masala Dosa", "description": "Buttery benne dosa layered with spicy red chutney and potato masala", "price": 165}
-      ]
-    },
-    {
-      "category": "Uttapam",
-      "cuisine": "South Indian",
-      "type": "Vegetarian",
-      "section": "Uttapam",
-      "timing": "ALL DAY",
-      "items": [
+        {"name": "Benne Mysore Masala Dosa", "description": "Buttery benne dosa layered with spicy red chutney and potato masala", "price": 165},
         {"name": "Onion Uttapam", "price": 125},
         {"name": "Cheese Chilli Uttapam", "price": 165},
         {"name": "Masala Uttapam", "price": 145}
@@ -80,7 +68,6 @@
       "category": "Soup and Starters",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Soups",
       "items": [
         {"name": "Khow Suey Soup", "price": 175},
         {"name": "Corn & Palak Shorba", "price": 175},
@@ -93,7 +80,6 @@
       "category": "Indian Starters",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Starters",
       "items": [
         {"name": "Karari Paneer", "description": "Soft paneer coated in a crisp papad crust, fried to a perfect golden crunch", "price": 295},
         {"name": "Paneer Makai Ki Seekh", "description": "Juicy paneer & sweet corn blended with spices, shaped on skewers and grilled", "price": 295},
@@ -116,19 +102,7 @@
       "category": "Indian Mains",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Mains",
       "items": [
-        {"name": "Hariyali Butter Paneer", "description": "Paneer cooked in a creamy green herb gravy finished with butter and mild spices", "price": 335},
-        {"name": "Nandan Paneer Curry", "description": "Kerala-inspired coconut curry with peppery spice and fragrant curry leaves", "price": 335},
-        {"name": "Kothmir Paneer Masala", "price": 325},
-        {"name": "Junglee Paneer Curry", "price": 325},
-        {"name": "Chettinad Paneer Masala", "price": 325},
-        {"name": "Paneer Musallam", "price": 335},
-        {"name": "Anjeer Paneer Korma", "description": "Soft paneer in a mildly sweet fig and cashew korma with delicate spices", "price": 365},
-        {"name": "Sindhi Paneer Chole", "price": 315},
-        {"name": "Paneer Nazakat", "description": "Stuffed Paneer cheese, dry Nuts, saffron, chatpata tomato gravy", "price": 315},
-        {"name": "Chura Paneer Saag", "price": 315},
-        {"name": "Mumbai Mirch Masala Paneer", "price": 315},
         {"name": "Paneer Tikka Masala", "price": 285},
         {"name": "Paneer Lababdar", "price": 285},
         {"name": "Paneer Kadhai", "price": 285},
@@ -152,14 +126,24 @@
         {"name": "Green Peas & Makhana", "price": 285},
         {"name": "Kesar & nuts Paneer Kofta", "price": 325},
         {"name": "Spicy Kofta Salan", "price": 325},
-        {"name": "Khubani Kofta & Red Pepper Curry", "price": 355}
+        {"name": "Khubani Kofta & Red Pepper Curry", "price": 355},
+        {"name": "Hariyali Butter Paneer", "description": "Paneer cooked in a creamy green herb gravy finished with butter and mild spices", "price": 335},
+        {"name": "Nandan Paneer Curry", "description": "Kerala-inspired coconut curry with peppery spice and fragrant curry leaves", "price": 335},
+        {"name": "Kothmir Paneer Masala", "price": 325},
+        {"name": "Junglee Paneer Curry", "price": 325},
+        {"name": "Chettinad Paneer Masala", "price": 325},
+        {"name": "Paneer Musallam", "price": 335},
+        {"name": "Anjeer Paneer Korma", "description": "Soft paneer in a mildly sweet fig and cashew korma with delicate spices", "price": 365},
+        {"name": "Sindhi Paneer Chole", "price": 315},
+        {"name": "Paneer Nazakat", "description": "Stuffed Paneer cheese, dry Nuts, saffron, chatpata tomato gravy", "price": 315},
+        {"name": "Chura Paneer Saag", "price": 315},
+        {"name": "Mumbai Mirch Masala Paneer", "price": 315}
       ]
     },
     {
       "category": "Dal Rice",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Dal",
       "items": [
         {"name": "Ghee Roasted Akkha Masoor Dal", "price": 275},
         {"name": "Classic Dal Tadka/fry", "price": 235},
@@ -170,7 +154,6 @@
       "category": "Khichadi",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Khichadi",
       "items": [
         {"name": "Exotic Veg Masala Khichdi", "price": 285},
         {"name": "Karnataka Bisibele Bhaat", "price": 225},
@@ -182,7 +165,6 @@
       "category": "Rice",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Rice",
       "items": [
         {"name": "Curd Rice", "price": 175},
         {"name": "Khandeshi Masale Bhat", "description": "Maharahstrian style", "price": 315},
@@ -198,7 +180,6 @@
       "category": "Asian Mains",
       "cuisine": "Asian",
       "type": "Vegetarian",
-      "section": "Asian Mains",
       "items": [
         {"name": "Nasi Goreng", "price": 345},
         {"name": "Koyla Butter Veg Rice", "description": "Fragrant rice tossed in buttery vegetables and finished with a hint of smoky koyla infusion", "price": 285},
@@ -210,10 +191,29 @@
       ]
     },
     {
+      "category": "Asian Starters",
+      "cuisine": "Asian",
+      "type": "Vegetarian",
+      "items": [
+        {"name": "Colombo Chilli Paneer", "description": "Sri Lankan-style", "price": 285},
+        {"name": "Burma Burma Paneer", "description": "Paneer tossed in smoky red chilli Burmese-style sauce with garlic and umami depth", "price": 275},
+        {"name": "Paneer Satay With Peanut Sauce", "price": 285},
+        {"name": "Korean Chilli Paneer", "description": "Wok-tossed paneer glazed in spicy-sweet gochujang with sesame and scallions", "price": 285},
+        {"name": "Shanghai Paneer Triangles", "price": 285},
+        {"name": "Dragon Fire Baby Corn", "price": 275},
+        {"name": "Tangy Crispy Exotic Veg", "price": 295},
+        {"name": "Hunan Style Crispy Mushrooms", "price": 295},
+        {"name": "Thai Basil Spring Rolls", "price": 295},
+        {"name": "Kung Pao Veg", "description": "Wok-tossed exotic vegetables with dry red chillies, roasted peanuts, garlic, and bold Sichuan heat", "price": 275},
+        {"name": "Cheese Burst Manchurian", "price": 295},
+        {"name": "Spinach & Corn Manchurian", "price": 285},
+        {"name": "Asian Stir Fry Veg", "description": "Wok-tossed seasonal vegetables with garlic, ginger, soy, and crushed pepper in a bold Asian glaze", "price": 285}
+      ]
+    },
+    {
       "category": "Noodles",
       "cuisine": "Asian",
       "type": "Vegetarian",
-      "section": "Noodles",
       "items": [
         {"name": "Burma Noodles (Dry Style)", "description": "Northern Thai-style noodles tossed with aromatic curry spices", "price": 285},
         {"name": "Asian Street Spicy Noodles", "description": "Wok-tossed noodles in a fiery sesame-chilli-lime sauce with fresh herbs and vegetables", "price": 285},
@@ -226,10 +226,73 @@
       ]
     },
     {
+      "category": "Indian Breads",
+      "cuisine": "Indian",
+      "type": "Vegetarian",
+      "items": [
+        {"name": "Roti", "price": 30},
+        {"name": "Naan", "price": 55},
+        {"name": "Laccha Naan", "price": 65},
+        {"name": "Paratha", "price": 55},
+        {"name": "Laccha Paratha", "price": 65},
+        {"name": "Garlic Naan", "price": 75},
+        {"name": "Cheese Naan", "price": 110},
+        {"name": "Kulcha", "price": 45},
+        {"name": "Stuffed Paratha (Aloo)", "price": 110},
+        {"name": "Stuffed Paratha (Veg)", "price": 120},
+        {"name": "Stuffed Paratha (Paneer)", "price": 130},
+        {"name": "Matar Paratha", "price": 140},
+        {"name": "Masala Roti", "price": 55},
+        {"name": "Warqi Paratha", "price": 85},
+        {"name": "Chura Naan", "price": 85},
+        {"name": "Add Butter", "price": 10}
+      ]
+    },
+    {
+      "category": "Sides",
+      "cuisine": "Indian",
+      "type": "Vegetarian",
+      "items": [
+        {"name": "Mooli Ka Thecha", "price": 155},
+        {"name": "Bharleli Mirchi (Stuffed Bhavnagri Chilli)", "price": 155},
+        {"name": "French Fries", "price": 245},
+        {"name": "Masala Cheese Fries", "price": 275},
+        {"name": "Roasted Papad", "price": 30},
+        {"name": "Fried Papad", "price": 50},
+        {"name": "Green Salad", "price": 125},
+        {"name": "Carrot Pachadi", "price": 125},
+        {"name": "Raita (Veg)", "price": 125},
+        {"name": "Raita (Pineapple)", "price": 125},
+        {"name": "Raita (Boondi)", "price": 125}
+      ]
+    },
+    {
+      "category": "Triple Rice",
+      "cuisine": "Asian",
+      "type": "Vegetarian",
+      "items": [
+        {"name": "Veg Khow Suey Triple Rice", "description": "Burmese Fusion", "price": 325},
+        {"name": "Mex-Chinese Triple Rice", "description": "Mexican-style corn rice, jalapeño cheese noodles & bean-veggie tangy gravy", "price": 325},
+        {"name": "Korean Triple Gochuchang Rice", "description": "Gochujang fried rice, sesame noodles & spicy vegetable bulgogi-style gravy", "price": 325},
+        {"name": "Peri-Peri Veg Triple Rice", "description": "Peri-peri rice, cheesy masala noodles, and vegetable fritters in hot chilli gravy", "price": 325},
+        {"name": "Classic Szechwan Triple Rice", "price": 325},
+        {"name": "Triple Manchurian Rice", "price": 325}
+      ]
+    },
+    {
+      "category": "Gravies",
+      "cuisine": "Indian",
+      "type": "Vegetarian",
+      "items": [
+        {"name": "Thai Red Curry with Jasmine Rice", "price": 375},
+        {"name": "Basil Chilli Sauce", "price": 295},
+        {"name": "Mongolian Gravy", "price": 295}
+      ]
+    },
+    {
       "category": "Beverages",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Beverages",
       "items": [
         {"name": "Aerated Beverages 250ml", "description": "Fanta / Coke / Diet Coke / Thums Up", "price": 65},
         {"name": "Masala Soda", "price": 75},
@@ -246,7 +309,6 @@
       "category": "Hot Beverages",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Hot Beverages",
       "items": [
         {"name": "Tea", "price": 30},
         {"name": "Filter Coffee", "price": 55}
@@ -256,7 +318,6 @@
       "category": "Milk Shake & Falooda",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Milk Shake & Falooda",
       "items": [
         {"name": "Dry Fruit Milk Shake", "price": 225},
         {"name": "Chocolate Milk Shake", "price": 145},
@@ -274,7 +335,6 @@
       "category": "Desserts",
       "cuisine": "Indian",
       "type": "Vegetarian",
-      "section": "Desserts",
       "items": [
         {"name": "Mango flavoured Mix-Fruit Custard", "price": 225},
         {"name": "Gulab Jamun Cheese Cake", "price": 245},
