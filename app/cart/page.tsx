@@ -14,8 +14,8 @@ import { calculateDeliveryCharge, calculateDistance } from "@/utils/deliveryUtil
 import { placeOrder } from "@/lib/orders";
 import { subscribeToRestaurantStatus } from "@/lib/status";
 
-// Pune coordinates based on Footer location
-const RESTAURANT_COORDS = { lat: 18.572548, lng: 73.914478 };
+// Urban Binge coordinates - Virar West, Maharashtra
+const RESTAURANT_COORDS = { lat: 19.4689722, lng: 72.8053311 };
 
 export default function CartPage() {
     const router = useRouter();
