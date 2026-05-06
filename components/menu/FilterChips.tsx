@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const filters = [
-    { id: "veg", label: "Veg", type: "veg" },
+    { id: "veg", label: "Pure Veg", type: "veg" },
 ];
 
 interface FilterChipsProps {
