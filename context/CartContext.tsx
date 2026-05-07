@@ -16,6 +16,9 @@ type CartContextType = {
     removeFromCart: (id: string) => void;
     updateQuantity: (id: string, quantity: number) => void;
     clearCart: () => void;
+    cartSubtotal: number;
+    cartCGST: number;
+    cartSGST: number;
     cartTotal: number;
     cartCount: number;
     isCartOpen: boolean;
@@ -98,7 +101,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setNotification(null);
     };
 
-    const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    // Calculate subtotal (sum of all items)
+    const cartSubtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    
+    // Calculate CGST (2.5% on subtotal only)
+    const cartCGST = parseFloat((cartSubtotal * 0.025).toFixed(2));
+    
+    // Calculate SGST (2.5% on subtotal only)
+    const cartSGST = parseFloat((cartSubtotal * 0.025).toFixed(2));
+    
+    // Calculate total (subtotal + CGST + SGST, delivery fee added separately)
+    const cartTotal = cartSubtotal + cartCGST + cartSGST;
+    
     const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
 
     return (
@@ -109,6 +123,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 removeFromCart,
                 updateQuantity,
                 clearCart,
+                cartSubtotal,
+                cartCGST,
+                cartSGST,
                 cartTotal,
                 cartCount,
                 isCartOpen,

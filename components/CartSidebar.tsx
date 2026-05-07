@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 import Image from "next/image";
 
 export default function CartSidebar() {
-    const { cart, removeFromCart, updateQuantity, cartTotal, isCartOpen, toggleCart, deliveryDistance } = useCart();
+    const { cart, removeFromCart, updateQuantity, cartSubtotal, cartCGST, cartSGST, cartTotal, isCartOpen, toggleCart, deliveryDistance } = useCart();
 
     return (
         <AnimatePresence>
@@ -116,7 +116,15 @@ export default function CartSidebar() {
                                 <div className="space-y-3 text-sm">
                                     <div className="flex justify-between text-accent">
                                         <span>Subtotal</span>
-                                        <span>₹{cartTotal}</span>
+                                        <span>₹{cartSubtotal}</span>
+                                    </div>
+                                    <div className="flex justify-between text-accent">
+                                        <span>CGST (2.5%)</span>
+                                        <span>₹{cartCGST}</span>
+                                    </div>
+                                    <div className="flex justify-between text-accent">
+                                        <span>SGST (2.5%)</span>
+                                        <span>₹{cartSGST}</span>
                                     </div>
                                     
                                     {/* Delivery Fee Section */}
@@ -132,7 +140,7 @@ export default function CartSidebar() {
                                             </div>
                                         ) : (
                                             <div className="space-y-1 text-xs">
-                                                {cartTotal < 250 ? (
+                                                {cartSubtotal < 250 ? (
                                                     <div className="flex justify-between text-gray-700">
                                                         <span>Delivery Fee:</span>
                                                         <span className="font-bold text-primary">₹35</span>

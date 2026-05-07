@@ -39,6 +39,8 @@ export interface Order {
     items: OrderItem[];
     subtotal: number;
     deliveryCharge: number;
+    cgst?: number;
+    sgst?: number;
     total: number;
     address: OrderAddress;
     status: OrderStatus;

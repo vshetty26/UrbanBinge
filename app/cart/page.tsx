@@ -19,7 +19,7 @@ const RESTAURANT_COORDS = { lat: 19.4689722, lng: 72.8053311 };
 
 export default function CartPage() {
     const router = useRouter();
-    const { cart, removeFromCart, updateQuantity, cartTotal, clearCart } = useCart();
+    const { cart, removeFromCart, updateQuantity, cartSubtotal, cartCGST, cartSGST, cartTotal, clearCart } = useCart();
     const [isPlacingOrder, setIsPlacingOrder] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
 
@@ -49,12 +49,12 @@ export default function CartPage() {
     useEffect(() => {
         const dist = parseFloat(distance);
         if (!isNaN(dist)) {
-            const charge = calculateDeliveryCharge(dist, cartTotal);
+            const charge = calculateDeliveryCharge(dist, cartSubtotal);
             setDeliveryCharge(charge === -1 ? 0 : charge); // Handle out of range gracefully in UI
         } else {
             setDeliveryCharge(0);
         }
-    }, [distance, cartTotal]);
+    }, [distance, cartSubtotal]);
 
     const handleLocateMe = () => {
         setIsLocating(true);
@@ -126,6 +126,8 @@ export default function CartPage() {
 
         setIsPlacingOrder(true);
         try {
+            const finalTotal = cartTotal + deliveryCharge;
+
             const orderId = await placeOrder({
                 customerName: name,
                 customerPhone: phone.replace(/\D/g, ''),
@@ -137,9 +139,11 @@ export default function CartPage() {
                     quantity: item.quantity,
                     image: item.image,
                 })),
-                subtotal: cartTotal,
+                subtotal: cartSubtotal,
+                cgst: cartCGST,
+                sgst: cartSGST,
                 deliveryCharge,
-                total: cartTotal + deliveryCharge,
+                total: parseFloat(finalTotal.toFixed(2)),
                 address: {
                     flatNo,
                     area,
@@ -371,7 +375,15 @@ export default function CartPage() {
                                 <div className="space-y-2 text-sm text-gray-600">
                                     <div className="flex justify-between">
                                         <span>Subtotal</span>
-                                        <span>₹{cartTotal}</span>
+                                        <span>₹{cartSubtotal}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span>CGST (2.5%)</span>
+                                        <span>₹{cartCGST}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span>SGST (2.5%)</span>
+                                        <span>₹{cartSGST}</span>
                                     </div>
                                     <div className="flex justify-between">
                                         <span>Delivery Charges</span>
@@ -380,7 +392,7 @@ export default function CartPage() {
                                 </div>
                                 <div className="flex justify-between items-center text-xl font-bold text-accent pt-4 border-t border-gray-100">
                                     <span>Total</span>
-                                    <span>₹{cartTotal + deliveryCharge}</span>
+                                    <span>₹{(cartTotal + deliveryCharge).toFixed(2)}</span>
                                 </div>
 
                                 {/* Place Order Button */}
