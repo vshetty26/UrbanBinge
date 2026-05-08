@@ -361,7 +361,7 @@ export default function CartPage() {
                                             <p className={`text-xs mt-2 font-medium ${parseFloat(distance) > 3 ? 'text-red-600' : 'text-green-600'}`}>
                                                 {parseFloat(distance) > 3 
                                                     ? `❌ Delivery Not Available - ${distance} km is outside our 0-3 km delivery radius` 
-                                                    : deliveryCharge === 0 ? "✅ Free Delivery! 🎉" : `✅ Delivery Fee: ₹${deliveryCharge}`}
+                                                    : "✅ Location confirmed"}
                                             </p>
                                         )}
                                     </div>
@@ -387,8 +387,11 @@ export default function CartPage() {
                                     </div>
                                     <div className="flex justify-between">
                                         <span>Delivery Charges</span>
-                                        <span>{distance ? `₹${deliveryCharge}` : '--'}</span>
+                                        <span className={deliveryCharge === 0 ? "text-green-600 font-bold" : ""}>
+                                            {distance ? (deliveryCharge === 0 ? "FREE 🎉" : `₹${deliveryCharge}`) : "₹0"}
+                                        </span>
                                     </div>
+                                    <p className="text-xs text-gray-500 italic pt-1">Free delivery above ₹250</p>
                                 </div>
                                 <div className="flex justify-between items-center text-xl font-bold text-accent pt-4 border-t border-gray-100">
                                     <span>Total</span>

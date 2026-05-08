@@ -129,29 +129,29 @@ export default function CartSidebar() {
                                     
                                     {/* Delivery Fee Section */}
                                     <div className="bg-white rounded-lg p-3 space-y-2 border border-gray-100">
-                                        <p className="font-bold text-accent text-xs uppercase tracking-widest">Delivery Charges</p>
+                                        <p className="font-bold text-accent text-xs uppercase tracking-widest">Delivery</p>
                                         
                                         {deliveryDistance === null ? (
-                                            <p className="text-xs text-gray-500 italic">Enter delivery address to calculate fee</p>
+                                            <p className="text-xs text-gray-500 italic">Enter delivery address to calculate</p>
                                         ) : deliveryDistance > 3 ? (
                                             <div className="text-xs">
-                                                <p className="text-red-600 font-bold">❌ Delivery Not Available</p>
-                                                <p className="text-gray-500 text-[10px] mt-1">Location is {deliveryDistance.toFixed(1)} km away. We deliver only within 0-3 km radius.</p>
+                                                <p className="text-red-600 font-bold">❌ Not Available</p>
+                                                <p className="text-gray-500 text-[10px] mt-1">Outside 0-3 km radius</p>
                                             </div>
                                         ) : (
                                             <div className="space-y-1 text-xs">
                                                 {cartSubtotal < 250 ? (
                                                     <div className="flex justify-between text-gray-700">
-                                                        <span>Delivery Fee:</span>
+                                                        <span>Fee:</span>
                                                         <span className="font-bold text-primary">₹35</span>
                                                     </div>
                                                 ) : (
                                                     <div className="flex justify-between text-green-600 font-bold">
-                                                        <span>Delivery:</span>
+                                                        <span>Status:</span>
                                                         <span>FREE 🎉</span>
                                                     </div>
                                                 )}
-                                                <p className="text-gray-500 text-[10px] mt-1">Distance: {deliveryDistance.toFixed(1)} km</p>
+                                                <p className="text-gray-500 text-[10px] mt-1">{deliveryDistance.toFixed(1)} km away</p>
                                             </div>
                                         )}
                                     </div>
