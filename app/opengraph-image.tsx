@@ -13,7 +13,7 @@ export const contentType = 'image/png';
 
 export default async function Image() {
     // Font loading could be added here if needed, but for image only it's fine
-    const logoPath = join(process.cwd(), 'public/chopsticklog.png');
+    const logoPath = join(process.cwd(), 'public/urbanbinge-logo.png');
     const logoData = await readFile(logoPath);
     const logoBase64 = logoData.toString('base64');
 

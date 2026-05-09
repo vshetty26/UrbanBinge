@@ -21,7 +21,7 @@ export default function Loading() {
                 className="relative w-32 h-32 sm:w-48 sm:h-48"
             >
                 <Image
-                    src="/chopsticklog.png"
+                    src="/urbanbinge-logo.png"
                     alt="Loading..."
                     fill
                     className="object-contain"
